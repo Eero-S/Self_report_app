@@ -1,0 +1,31 @@
+<%- include('./partials/header.ejs') %>
+    <h1>Login</h1>
+    <form method="POST" action="/auth/login">
+        <input type="text" name="email" />
+        <input type="password" name="password" />
+        <input type="submit" value="Submit!" />
+    </form>
+
+    <h1>Register!</h1>
+    <form method="POST" action="/auth/register">
+        <input type="email" name="email" />
+        <input type="password" name="password" />
+        <input type="password" name="verification" />
+        <input type="submit" value="Submit!" />
+    </form> 
+
+
+ <% if (errors) { %>
+  <ul>
+    <% Object.keys(errors).forEach((attribute) => { %>
+        <% Object.values(errors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+ 
+<%- include('./partials/footer.ejs') %>
+
+
