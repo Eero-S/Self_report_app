@@ -31,6 +31,8 @@ user_id INTEGER REFERENCES users(id)
 4. Run the following command to start the app
    'deno run --unstable --allow-all app.js'
 
-Instructions to run the test:
+Instructions to run the tests:
 
-1. TODO
+1. Navigate to the root of the project
+2. run the following command:
+   'TEST_ENVIRONMENT=true deno test --unstable --allow-all'
