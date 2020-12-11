@@ -1,6 +1,6 @@
 # wsd-project
 
-Link to online demo: TODO
+Link to online demo: https://wsd-project-es2.herokuapp.com/
 
 Instructions to run the application:
 
