@@ -76,10 +76,6 @@ const getPublicMood = async () => {
   const response = await fetch("/api/mood");
   const resJson = await response.json();
 
-  console.log("fetch called");
-  console.log(response);
-  console.log(resJson);
-
   if (
     resJson &&
     Object.values(resJson).filter((item) => item !== null).length > 0
