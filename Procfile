@@ -1,1 +1,1 @@
-web: deno run --allow-net=:${PORT} app.js ${PORT}
+deno run --unsafe --allow-all app.js ${PORT}
