@@ -9,4 +9,8 @@ const showRegister = async ({ render, session }) => {
   render("register.ejs", { errors: errors, email: email });
 };
 
-export { showLogin, showRegister };
+const showLanding = async ({ render }) => {
+  render("landingPage.ejs");
+};
+
+export { showLogin, showRegister, showLanding };

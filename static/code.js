@@ -39,11 +39,11 @@ const setDefaultValues = async () => {
   const month = today.getMonth();
   const week = getNumberOfWeek();
 
-  const resMonth = await fetch(`/data/reports?year=${year}&month=${month - 1}`);
+  const resMonth = await fetch(`/data/reports?year=${year}&month=${month}`);
   const resJsonMonth = await resMonth.json();
 
   setDataHelper(resJsonMonth, "monthlyAverages");
-  document.querySelector("#monthInput").value = `${year}-${month - 1}`;
+  document.querySelector("#monthInput").value = `${year}-${month}`;
 
   const resWeek = await fetch(`/data/reports?year=${year}&week=${week - 1}`);
   const resJsonWeek = await resWeek.json();
@@ -72,8 +72,61 @@ const setMonth = async () => {
   setDataHelper(resJson, "monthlyAverages");
 };
 
+const getPublicMood = async () => {
+  const response = await fetch("/api/mood");
+  const resJson = await response.json();
+
+  console.log("fetch called");
+  console.log(response);
+  console.log(resJson);
+
+  if (
+    resJson &&
+    Object.values(resJson).filter((item) => item !== null).length > 0
+  ) {
+    const moodToday = resJson.today;
+    const moodYesterday = resJson.yesterday;
+
+    const element = document.createElement("h4");
+    element.appendChild(
+      document.createTextNode(
+        moodToday >= moodYesterday
+          ? "Things are looking bright today!"
+          : "Things are looking gloomy today..."
+      )
+    );
+    document.querySelector("#moodMessage").prepend(element);
+
+    for (var key in resJson) {
+      const currentValue = resJson[key];
+      const element = document.createElement("li");
+
+      element.appendChild(
+        document.createTextNode(
+          `Average mood for ${key}: ${
+            currentValue ? currentValue : "No data available"
+          }`
+        )
+      );
+      document.querySelector("#moodList").appendChild(element);
+    }
+  } else {
+    const element = document.createElement("li");
+    element.appendChild(
+      document.createTextNode("Data for recent moods does not exist currently")
+    );
+    document.querySelector("#moodList").appendChild(element);
+  }
+};
+
 if (window.location.pathname == "/behavior/reporting") {
   window.onload = () => {
     setDefaultValues();
+  };
+}
+
+if (window.location.pathname == "/home") {
+  window.onload = () => {
+    getPublicMood();
   };
 }

@@ -1,6 +1,6 @@
 const showHome = async ({ render, session }) => {
   const user = await session.get("user");
-  render("home.ejs", { user: user });
+  render("userDashboard.ejs", { user: user });
 };
 
 const showReportMoning = async ({ render, session }) => {

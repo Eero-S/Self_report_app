@@ -4,13 +4,15 @@ const authMiddleware = async ({ request, response, session }, next) => {
   if (
     !(
       request.url.pathname.startsWith("/auth/") ||
-      request.url.pathname.startsWith("/static")
+      request.url.pathname.startsWith("/static") ||
+      request.url.pathname.startsWith("/home") ||
+      request.url.pathname.startsWith("/api")
     )
   ) {
     if (session && (await session.get("authenticated"))) {
       await next();
     } else {
-      response.redirect("/auth/login");
+      response.redirect("/home");
     }
   } else {
     await next();
