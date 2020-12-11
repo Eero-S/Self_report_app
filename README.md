@@ -27,12 +27,13 @@ user_id INTEGER REFERENCES users(id)
 
 2. Put your own postgres database credentials into the .env file.
 
-3. Navigate to root of the folder.
+3. Navigate to root of the project folder.
 4. Run the following command to start the app
    'deno run --unstable --allow-all app.js'
+5. The app should be running now, open http://localhost:7777/ in your browser.
 
 Instructions to run the tests:
 
-1. Navigate to the root of the project
+1. Navigate to the root of the project folder
 2. run the following command:
    'TEST_ENVIRONMENT=true deno test --unstable --allow-all'
