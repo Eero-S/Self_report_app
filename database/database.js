@@ -1,7 +1,7 @@
 import { Pool } from "../deps.js";
 import { config } from "../config/config.js";
 
-const connectionPool = new Pool(config.database, 5);
+const connectionPool = new Pool(config.database, 3);
 
 const executeQuery = async (query, ...params) => {
   const client = await connectionPool.connect();

@@ -10,7 +10,6 @@ const authMiddleware = async ({ request, response, session }, next) => {
     if (session && (await session.get("authenticated"))) {
       await next();
     } else {
-      console.log("REDIR");
       response.redirect("/auth/login");
     }
   } else {
@@ -28,13 +27,13 @@ const errorMiddleware = async (context, next) => {
 
 const requestTimingMiddleware = async ({ request, session }, next) => {
   const user = await session.get("user");
-  const authStatus = user ? user.id : "anonymous";
+  const authStatus = user ? `userId: ${user.id}` : "anonymous";
   const start = Date.now();
   const today = new Date(start);
   await next();
   const ms = Date.now() - start;
   console.log(
-    `${today} ${request.method} ${request.url.pathname} ${authStatus} ${ms}ms`
+    `${today} ${request.method} ${request.url.pathname} ${authStatus} - ${ms}ms`
   );
 };
 

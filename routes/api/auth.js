@@ -64,7 +64,7 @@ const register = async ({ request, response, session }) => {
     hash
   );
 
-  response.body = "Registration successful!";
+  response.redirect("/behavior/reporting");
 };
 
 const login = async ({ request, response, session }) => {

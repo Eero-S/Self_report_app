@@ -1,15 +1,24 @@
 import { Router } from "../deps.js";
 import { register, login, logout } from "./api/auth.js";
-import { reportMorning } from "./api/report.js";
+import { reportEvening, reportMorning } from "./api/report.js";
+import { getAverages, getAllReports } from "./api/user.js";
 import { showLogin, showRegister } from "./controller/authController.js";
-import { showHome, showReportMoning } from "./controller/homeController.js";
+import {
+  showHome,
+  showReportEvening,
+  showReportMoning,
+} from "./controller/homeController.js";
 
 const router = new Router();
 
 router.get("/behavior/reporting", showHome);
 router.get("/behavior/reporting/morning", showReportMoning);
-router.get("/behavior/reporting/evening", showHome);
+router.get("/behavior/reporting/evening", showReportEvening);
 router.post("/behavior/reporting/morning", reportMorning);
+router.post("/behavior/reporting/evening", reportEvening);
+
+router.get("/data/reports", getAverages);
+router.get("/data/reports/all", getAllReports);
 
 // Auth
 router.get("/auth/login", showLogin);

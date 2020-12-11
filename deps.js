@@ -20,3 +20,4 @@ export {
   isEmail,
   isNumber,
 } from "https://deno.land/x/validasaur@v0.15.0/mod.ts";
+export { config as envConfig } from "https://deno.land/x/dotenv/mod.ts";
