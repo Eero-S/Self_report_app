@@ -1,14 +1,13 @@
 ## Self Report app 
 
-A full stack project made with deno, postgres, and ejs templates. Done as a school project.
+A full stack app made with deno, postgres, and ejs templates. Done as a school project.
 
 Link to online demo: https://wsd-project-es2.herokuapp.com/
 
 
-
 ### Instructions to run the application: 
 
-1. In case you run database locally run these commands (in the following order) in your postgres command line. Otherwise move to step 3.
+1. In case you run database locally run these commands (in the following order) in your postgres command line. Otherwise move to step 2.
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
