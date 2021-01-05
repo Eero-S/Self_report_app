@@ -1,8 +1,12 @@
-# wsd-project
+## Self Report app 
+
+A full stack project made with deno, postgres, and ejs templates, done as a school project.
 
 Link to online demo: https://wsd-project-es2.herokuapp.com/
 
-Instructions to run the application:
+
+
+### Instructions to run the application: 
 
 1. In case you run database locally run these commands (in the following order) in your postgres command line. Otherwise move to step 3.
 
@@ -32,8 +36,3 @@ user_id INTEGER REFERENCES users(id)
    'deno run --unstable --allow-all app.js'
 5. The app should be running now, open http://localhost:7777/ in your browser.
 
-Instructions to run the tests:
-
-1. Navigate to the root of the project folder
-2. run the following command:
-   'TEST_ENVIRONMENT=true deno test --unstable --allow-all'
