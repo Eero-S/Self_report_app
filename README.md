@@ -1,6 +1,6 @@
 ## Self Report app 
 
-A full stack project made with deno, postgres, and ejs templates, done as a school project.
+A full stack project made with deno, postgres, and ejs templates. Done as a school project.
 
 Link to online demo: https://wsd-project-es2.herokuapp.com/
 
