@@ -2,7 +2,6 @@
 
 A full stack app made with deno, postgres, and ejs templates. Done as a school project.
 
-Link to online demo: https://wsd-project-es2.herokuapp.com/
 
 
 ### Instructions to run the application: 
